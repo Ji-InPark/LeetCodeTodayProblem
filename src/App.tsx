@@ -1,21 +1,23 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import axios from "axios";
 import ReactGA from 'react-ga4';
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Home from "./Home";
+import Updater from "./Updater";
 
 ReactGA.initialize('G-K9ZBLSZZFE');
 
 function App() {
   ReactGA.send({hitType: 'pageview', page: '/'});
-  
-  useEffect(() => {
-    axios.get<string>('https://lctp.fly.dev/').then((response) => {
-      console.log(response)
-      window.open(response.data, '_self');
-    });
-  }, []);
 
-  return <></>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path={'/'} element={<Home/>}/>
+        <Route path={'/update'} element={<Updater/>}/>
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
