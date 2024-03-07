@@ -10,7 +10,11 @@ function Home() {
   }, []);
 
   return <h1>
-    Something went wrong..! Please try again later.
+    Leetcode click service have been blocked by Leedcode.
+    <br/>
+    Please click <a href={'https://leetcode.com'}>here</a> to go to Leetcode.
+    <br/>
+    Thank you for using our service. This website will be closed soon.
   </h1>;
 }
 
